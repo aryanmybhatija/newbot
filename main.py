@@ -140,7 +140,7 @@ import random
 keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ " ,url=f"https://t.me/Contact_AdminSbot"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/XYZOFFICALBOT") ],
+                    InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ " ,url=f"https://t.me/Contact_AdminSbot"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/sonuporsa") ],
                     [
                     InlineKeyboardButton("🏦 Cʜᴀɴɴᴇʟ " ,url="https://t.me/+jbgZyPCEyYI2ZTdl") ],                              
                 ],           
