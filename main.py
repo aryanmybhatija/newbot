@@ -187,7 +187,7 @@ async def start_command(bot: Client, message: Message):
         "➽ **/y2t - Create txt of yt playlist**\n\n"
         "➽ **/stop working process Command**\n\n"
         "➽ **/Txt Command Use To Download  Data From TXT File 🗃️** \n\n"
-        "**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**\n**⚡ MADE BY : [꧁•⊹٭𝚂𝚘𝚗𝚞٭⊹•꧂ ](t.me/botkaupdate)**\n**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**\n\n"
+        "**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**\n**⚡ MADE BY : [꧁•⊹٭𝚂𝚘𝚗𝚞٭⊹•꧂ ](t.me/sonuporsa)**\n**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**\n\n"
     
       )
 
