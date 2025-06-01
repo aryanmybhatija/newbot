@@ -796,7 +796,7 @@ async def upload(bot: Client, m: Message):
         thumb = await input6.download()
     elif raw_text6.startswith("http://") or raw_text6.startswith("https://"):
         getstatusoutput(f"wget '{raw_text6}' -O 'thumb.jpg'")
-        thumb = "[THUMBNAIL](https://i.ibb.co/C5smTsZd/IMG-20250411-125919-579.jpg)"
+        thumb = "[THUMBNAIL](https://myappme.shop/img/file_202.jpg)"
     else:
         thumb = raw_text6
 
