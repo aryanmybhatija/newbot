@@ -1095,7 +1095,7 @@ async def upload(bot: Client, m: Message):
                        f"**╰━━━━━━━━━━━━━━━━━➣**\n")
                     
 
-bot.run()
+bot.run((host='0.0.0.0', port=1000)
 if __name__ == "__main__":
     asyncio.run(main())
     
