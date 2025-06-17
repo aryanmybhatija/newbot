@@ -6,5 +6,5 @@ def hello_world():
     return 'WOLVES 🐺'
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     app.run()
