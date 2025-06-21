@@ -828,8 +828,9 @@ async def upload(bot: Client, m: Message):
 
             elif "classplusapp" in url or "media-cdn.classplusapp" in url:
              import urllib.parse
-             encoded_url = urllib.parse.quote_plus(url)
-             url = f"https://api.masterapi.tech/get/cp/dl?url={encoded_url}"
+              parsed_url = urllib.parse.urlsplit(url)
+            clean_url = urllib.parse.urlunsplit(parsed_url._replace(fragment=""))
+             url = f"https://api.masterapi.tech/get/cp/dl?url={clean_url}"
             
             elif "acecwply" in url:
                 cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={raw_text2}]+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv --no-warning "{url}"'
