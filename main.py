@@ -826,8 +826,10 @@ async def upload(bot: Client, m: Message):
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
              url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
 
-            elif "classplusapp" in url or "media-cdn.classplusapp" in url :
-             url = 'https://api.masterapi.tech/get/cp/dl?url={URL}'
+            elif "classplusapp" in url or "media-cdn.classplusapp" in url:
+             import urllib.parse
+             encoded_url = urllib.parse.quote_plus(url)
+             url = f"https://api.masterapi.tech/get/cp/dl?url={encoded_url}"
             
             elif "acecwply" in url:
                 cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={raw_text2}]+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mkv --no-warning "{url}"'
