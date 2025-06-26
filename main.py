@@ -65,24 +65,56 @@ api_url = "http://master-api-v3.vercel.app/"
 api_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzkxOTMzNDE5NSIsInRnX3VzZXJuYW1lIjoi4p61IFtvZmZsaW5lXSIsImlhdCI6MTczODY5MjA3N30.SXzZ1MZcvMp5sGESj0hBKSghhxJ3k1GTWoBUbivUe1I"
 token_cp ='eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksImNhdGVnb3J5SWQiOm51bGx9r'
     
-# Define the owner's user ID
-OWNER_ID = 6890400066 # Replace with the actual owner's user ID
-
-# List of sudo users (initially empty or pre-populated)
+# Owner and Sudo Setup
+OWNER_ID = 6890400066
 SUDO_USERS = [6890400066]
 
-AUTH_CHANNEL = -1002561868621
+# Force join channels (use numeric chat IDs for get_chat_member)
+FORCE_JOIN_1 = -1002561868621  # Channel 1 ID
+FORCE_JOIN_2 = -1002134567890  # Channel 2 ID
 
-# Function to check if a user is authorized
+# Corresponding invite links for channels
+INVITE_LINK_1 = "https://t.me/your_channel_1"
+INVITE_LINK_2 = "https://t.me/your_channel_2"
+
+# Check authorization (owner or sudo)
 def is_authorized(user_id: int) -> bool:
-    return user_id == OWNER_ID or user_id in SUDO_USERS or user_id == AUTH_CHANNEL
+    return user_id == OWNER_ID or user_id in SUDO_USERS
 
+# Bot setup
 bot = Client(
     "bot",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token=BOT_TOKEN)
+    bot_token=BOT_TOKEN
+)
 
+# Force Join Middleware
+@bot.on_message(filters.private)
+async def check_force_join(client: Client, message: Message):
+    user_id = message.from_user.id
+
+    not_joined_channels = []
+
+    # Check both channels
+    for channel_id, invite_link in [(FORCE_JOIN_1, INVITE_LINK_1), (FORCE_JOIN_2, INVITE_LINK_2)]:
+        try:
+            member = await client.get_chat_member(channel_id, user_id)
+            if member.status == "kicked":
+                await message.reply("🚫 You are banned from using this bot.")
+                return
+        except UserNotParticipant:
+            not_joined_channels.append(invite_link)
+
+    if not_joined_channels:
+        text = "🔒 To use this bot, please join both channels first:\n\n"
+        for link in not_joined_channels:
+            text += f"👉 [Join Channel]({link})\n"
+        await message.reply(text, disable_web_page_preview=True)
+        return
+
+    # User passed both checks
+    await message.reply("✅ You are authorized. Send your command...")
 # Stop command handler
 @bot.on_message(filters.command("stop"))
 async def restart_handler(_, m: Message):
