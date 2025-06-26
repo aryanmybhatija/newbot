@@ -107,10 +107,17 @@ async def check_force_join(client: Client, message: Message):
             not_joined_channels.append(invite_link)
 
     if not_joined_channels:
-        text = "🔒 To use this bot, please join both channels first:\n\n"
-        for link in not_joined_channels:
-            text += f"👉 [Join Channel]({link})\n"
-        await message.reply(text, disable_web_page_preview=True)
+        text = "🔒 To use this bot, please join both channels first:"
+        # Create buttons
+        buttons = [
+            [InlineKeyboardButton("📢 Join Channel 1", url=INVITE_LINK_1)],
+            [InlineKeyboardButton("📢 Join Channel 2", url=INVITE_LINK_2)]
+        ]
+        await message.reply(
+            text,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            disable_web_page_preview=True
+        )
         return
 
     # User passed both checks
