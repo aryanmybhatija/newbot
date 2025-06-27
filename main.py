@@ -71,7 +71,7 @@ OWNER_ID = 5435086550 # Replace with the actual owner's user ID
 # List of sudo users (initially empty or pre-populated)
 SUDO_USERS = [5435086550]
 
-AUTH_CHANNEL = -1002422810226
+AUTH_CHANNEL = -1002690416211
 
 # Function to check if a user is authorized
 def is_authorized(user_id: int) -> bool:
@@ -140,9 +140,9 @@ import random
 keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ " ,url=f"https://t.me/botkaupdate"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/XYZOFFICALBOT") ],
+                    InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ " ,url=f"https://t.me/Contact_AdminSbot"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/Sonuporsa") ],
                     [
-                    InlineKeyboardButton("🏦 Cʜᴀɴɴᴇʟ " ,url="https://t.me/botkaupdate") ],                              
+                    InlineKeyboardButton("🏦 Cʜᴀɴɴᴇʟ " ,url="https://t.me/Team_Sonu1") ],                              
                 ],           
 
       )
@@ -187,7 +187,7 @@ async def start_command(bot: Client, message: Message):
         "➽ **/y2t - Create txt of yt playlist**\n\n"
         "➽ **/stop working process Command**\n\n"
         "➽ **/Txt Command Use To Download  Data From TXT File 🗃️** \n\n"
-        "**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**\n**⚡ MADE BY : [🇰 🇦 🇱 🇻 🇮 🇳  👑](t.me/botkaupdate)**\n**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**\n\n"
+        "**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**\n**⚡ MADE BY : [  👑](t.me/Sonuporsa)**\n**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**\n\n"
     
       )
 
