@@ -84,8 +84,16 @@ INVITE_LINK_2 = "https://t.me/+2EFZ-jRYPg1mOTll"
 
 # === IMAGE LIST ===
 image_urls = [
-    "https://telegra.ph/file/your_image1.jpg",
-    "https://telegra.ph/file/your_image2.jpg"
+    "https://i.ibb.co/Xrr7psWb/IMG-20250411-124617-491.jpg",
+    "https://i.ibb.co/bj9v73JS/IMG-20250411-124633-497.jpg",
+    "https://i.ibb.co/h1nj5Hyd/IMG-20250411-124644-073.jpg",
+    "https://i.ibb.co/67JChx68/IMG-20250411-124649-706.jpg",
+    "https://i.ibb.co/yc6PJt3z/IMG-20250411-124654-322.jpg",
+    "https://i.ibb.co/ks7Jh7jz/IMG-20250411-124658-596.jpg",
+    "https://i.ibb.co/FLXXjwFc/IMG-20250411-124702-194.jpg",
+    "https://i.ibb.co/B2b0yfwW/IMG-20250411-125901-589.jpg",
+    "https://i.ibb.co/C5smTsZd/IMG-20250411-125919-579.jpg",
+    "https://i.ibb.co/tpkmMfGw/IMG-20250411-130536-966.jpg"
 ]
 
 # === START COMMAND WITH FORCE SUBSCRIBE CHECK ===
