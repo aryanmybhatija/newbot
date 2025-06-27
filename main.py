@@ -82,7 +82,7 @@ FORCE_JOIN_2 = -1002594448328
 INVITE_LINK_1 = "https://t.me/Team_Sonu1"
 INVITE_LINK_2 = "https://t.me/+2EFZ-jRYPg1mOTll"
 
-# === IMAGE LIST ===
+# Image URLs for the random image feature
 image_urls = [
     "https://i.ibb.co/Xrr7psWb/IMG-20250411-124617-491.jpg",
     "https://i.ibb.co/bj9v73JS/IMG-20250411-124633-497.jpg",
@@ -236,100 +236,6 @@ keyboard = InlineKeyboardMarkup(
 
       )
     
-# Image URLs for the random image feature
-image_urls = [
-    
-    "https://i.ibb.co/Xrr7psWb/IMG-20250411-124617-491.jpg",
-    "https://i.ibb.co/bj9v73JS/IMG-20250411-124633-497.jpg",
-    "https://i.ibb.co/h1nj5Hyd/IMG-20250411-124644-073.jpg",
-    "https://i.ibb.co/67JChx68/IMG-20250411-124649-706.jpg",
-    "https://i.ibb.co/yc6PJt3z/IMG-20250411-124654-322.jpg",
-    "https://i.ibb.co/ks7Jh7jz/IMG-20250411-124658-596.jpg",
-    "https://i.ibb.co/FLXXjwFc/IMG-20250411-124702-194.jpg",
-    "https://i.ibb.co/B2b0yfwW/IMG-20250411-125901-589.jpg",
-    "https://i.ibb.co/C5smTsZd/IMG-20250411-125919-579.jpg",
-    "https://i.ibb.co/tpkmMfGw/IMG-20250411-130536-966.jpg",
-    # Add more image URLs as needed
-]
-    
-# Start command handler
-@bot.on_message(filters.command(["start"]))
-async def start_command(bot: Client, message: Message):
-    # Send a loading message
-    loading_message = await bot.send_message(
-        chat_id=message.chat.id,
-        text="Loading... ⏳🔄"
-    )
-  
-    # Choose a random image URL
-    random_image_url = random.choice(image_urls)
-    
-    # Caption for the image
-    caption = (
-        
-        """<blockquote><pre> 🌟 Hello Boss 😎 {0}🌟</pre></blockquote>\n\n"""
-        "➽ **/apps - Support Links 🔗**\n\n"
-        "➽ **/Help ⚔️For Help Use Command**\n\n"
-        "➽ **/e2t - Edit txt file 📋**\n\n"
-        "➽ **/t2t - Txt to Txt file 📝**\n\n"
-        "➽ **/cookies - Upload cookies file 🗑️**\n\n"
-        "➽ **/y2t - Create txt of yt playlist**\n\n"
-        "➽ **/stop working process Command**\n\n"
-        "➽ **/Txt Command Use To Download  Data From TXT File 🗃️** \n\n"
-        "**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**\n**⚡ MADE BY : [꧁•⊹٭𝚂𝚘𝚗𝚞٭⊹•꧂ ](t.me/sonuporsa)**\n**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**\n\n"
-    
-      )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Initializing Uploader bot... 🤖\n\n"
-        "Progress: ⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Loading features... ⏳\n\n"
-        "Progress: 🟥🟥⬜⬜⬜⬜⬜⬜ 25%\n\n"
-    )
-    
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "This may take a moment, sit back and relax! 😊\n\n"
-        "Progress: 🟧🟧🟧🟧⬜⬜⬜⬜ 50%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Checking Bot Status... 🔍\n\n"
-        "Progress: 🟨🟨🟨🟨🟨🟨⬜⬜ 75%\n\n"
-    )
-
-    await asyncio.sleep(1)
-    await loading_message.edit_text(
-        "Checking Bot Status... 🔍\n\n"
-        "Progress:🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%\n\n"
-    )
-        
-    # Send the image with caption and buttons
-    await bot.send_photo(
-        chat_id=message.chat.id,
-        photo=random_image_url,
-        caption=caption.format(message.from_user.mention),
-        reply_markup=keyboard
-    )
-
-    # Delete the loading message
-    await loading_message.delete()
-
-
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-BUTTONS = InlineKeyboardMarkup([
-    [InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ ", url="https://t.me/Contact_adminSbot"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/sonuporsa")],
-   
-    [InlineKeyboardButton("🏦 Cʜᴀɴɴᴇʟ ", url="https://t.me/+jbgZyPCEyYI2ZTdl")],
-])
-
 #=================== TELEGRAM ID INFORMATION =============
 
 @bot.on_message(filters.private & filters.command("info"))
