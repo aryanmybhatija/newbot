@@ -70,7 +70,7 @@ OWNER_ID = 6890400066
 SUDO_USERS = [6890400066]
 
 # === BOT CONFIGURATION ===
-API_ID = os.getenv("API_ID")
+API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
