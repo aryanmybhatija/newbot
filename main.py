@@ -69,59 +69,101 @@ token_cp ='eyJjb3Vyc2VJZCI6IjQ1NjY4NyIsInR1dG9ySWQiOm51bGwsIm9yZ0lkIjo0ODA2MTksI
 OWNER_ID = 6890400066
 SUDO_USERS = [6890400066]
 
-# Force join channels (use numeric chat IDs for get_chat_member)
-FORCE_JOIN_1 = -1002690416211  # Channel 1 ID
-FORCE_JOIN_2 = -1002594448328  # Channel 2 ID
+# === BOT CONFIGURATION ===
+API_ID = "YOUR_API_ID"
+API_HASH = "YOUR_API_HASH"
+BOT_TOKEN = "YOUR_BOT_TOKEN"
 
-# Corresponding invite links for channels
+bot = Client("bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+
+# === FORCE JOIN SETTINGS ===
+FORCE_JOIN_1 = -1002690416211
+FORCE_JOIN_2 = -1002594448328
 INVITE_LINK_1 = "https://t.me/Team_Sonu1"
 INVITE_LINK_2 = "https://t.me/+2EFZ-jRYPg1mOTll"
 
-# Check authorization (owner or sudo)
-def is_authorized(user_id: int) -> bool:
-    return user_id == OWNER_ID or user_id in SUDO_USERS
+# === IMAGE LIST ===
+image_urls = [
+    "https://telegra.ph/file/your_image1.jpg",
+    "https://telegra.ph/file/your_image2.jpg"
+]
 
-# Bot setup
-bot = Client(
-    "bot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN
-)
-
-# Force Join Middleware
-@bot.on_message(filters.private)
-async def check_force_join(client: Client, message: Message):
+# === START COMMAND WITH FORCE SUBSCRIBE CHECK ===
+@bot.on_message(filters.command("start") & filters.private)
+async def start_command(bot: Client, message: Message):
     user_id = message.from_user.id
 
-    not_joined_channels = []
-
-    # Check both channels
-    for channel_id, invite_link in [(FORCE_JOIN_1, INVITE_LINK_1), (FORCE_JOIN_2, INVITE_LINK_2)]:
+    # Check if user joined both channels
+    not_joined = []
+    for chat_id, link in [(FORCE_JOIN_1, INVITE_LINK_1), (FORCE_JOIN_2, INVITE_LINK_2)]:
         try:
-            member = await client.get_chat_member(channel_id, user_id)
+            member = await bot.get_chat_member(chat_id, user_id)
             if member.status == "kicked":
                 await message.reply("🚫 You are banned from using this bot.")
                 return
         except UserNotParticipant:
-            not_joined_channels.append(invite_link)
+            not_joined.append(link)
 
-    if not_joined_channels:
-        text = "🔒 To use this bot, please join both channels first:"
-        # Create buttons
+    # Ask to join channels if not already
+    if not_joined:
         buttons = [
             [InlineKeyboardButton("📢 Join Channel 1", url=INVITE_LINK_1)],
-            [InlineKeyboardButton("📢 Join Channel 2", url=INVITE_LINK_2)]
+            [InlineKeyboardButton("📢 Join Channel 2", url=INVITE_LINK_2)],
         ]
         await message.reply(
-            text,
+            "🔒 To use this bot, please join both channels first:",
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
         return
 
-    # User passed both checks
-    await message.reply("✅ You are authorized. Send your command...")
+    # Loading animation
+    loading_message = await message.reply("Loading... ⏳🔄")
+
+    await asyncio.sleep(1)
+    await loading_message.edit_text("Initializing Uploader bot... 🤖\n\nProgress: ⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%")
+    await asyncio.sleep(1)
+    await loading_message.edit_text("Loading features... ⏳\n\nProgress: 🟥🟥⬜⬜⬜⬜⬜⬜ 25%")
+    await asyncio.sleep(1)
+    await loading_message.edit_text("Sit back and relax! 😊\n\nProgress: 🟧🟧🟧🟧⬜⬜⬜⬜ 50%")
+    await asyncio.sleep(1)
+    await loading_message.edit_text("Checking Bot Status... 🔍\n\nProgress: 🟨🟨🟨🟨🟨🟨⬜⬜ 75%")
+    await asyncio.sleep(1)
+    await loading_message.edit_text("All Set! ✅\n\nProgress: 🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%")
+
+    # Send main welcome image & text
+    caption = f"""
+<blockquote><pre> 🌟 Hello Boss 😎 {message.from_user.mention} 🌟</pre></blockquote>
+
+➽ **/apps - Support Links 🔗**
+➽ **/Help ⚔️ For Help Use Command**
+➽ **/e2t - Edit txt file 📋**
+➽ **/t2t - Txt to Txt file 📝**
+➽ **/cookies - Upload cookies file 🗑️**
+➽ **/y2t - Create txt of yt playlist**
+➽ **/stop working process Command**
+➽ **/Txt Command Use To Download  Data From TXT File 🗃️**
+
+**╭━━━━━━━━━◆✯◆━━━━━━━━━╮**
+**⚡ MADE BY : [꧁•⊹٭𝚂𝚘𝚗𝚞٭⊹•꧂](https://t.me/sonuporsa)**
+**╰━━━━━━━━━◇✯◇━━━━━━━━━╯**
+"""
+    await bot.send_photo(
+        chat_id=message.chat.id,
+        photo=random.choice(image_urls),
+        caption=caption,
+        reply_markup=start_buttons
+    )
+
+    await loading_message.delete()
+
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
+BUTTONS = InlineKeyboardMarkup([
+    [InlineKeyboardButton("📞 Cᴏɴᴛᴀᴄᴛ ", url="https://t.me/Contact_adminSbot"), InlineKeyboardButton("🥷 Oᴡɴᴇʀ ", url="https://t.me/sonuporsa")],
+   
+    [InlineKeyboardButton("🏦 Cʜᴀɴɴᴇʟ ", url="https://t.me/+jbgZyPCEyYI2ZTdl")],
+])
 # Stop command handler
 @bot.on_message(filters.command("stop"))
 async def restart_handler(_, m: Message):
