@@ -70,12 +70,12 @@ OWNER_ID = 6890400066
 SUDO_USERS = [6890400066]
 
 # Force join channels (use numeric chat IDs for get_chat_member)
-FORCE_JOIN_1 = -1002561868621  # Channel 1 ID
-FORCE_JOIN_2 = -1002134567890  # Channel 2 ID
+FORCE_JOIN_1 = -1002690416211  # Channel 1 ID
+FORCE_JOIN_2 = -1002594448328  # Channel 2 ID
 
 # Corresponding invite links for channels
-INVITE_LINK_1 = "https://t.me/your_channel_1"
-INVITE_LINK_2 = "https://t.me/your_channel_2"
+INVITE_LINK_1 = "https://t.me/Team_Sonu1"
+INVITE_LINK_2 = "https://t.me/+2EFZ-jRYPg1mOTll"
 
 # Check authorization (owner or sudo)
 def is_authorized(user_id: int) -> bool:
